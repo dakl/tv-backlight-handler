@@ -6,4 +6,4 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 WORKDIR /code
 COPY . /code
 
-CMD ["gunicorn", "run:app"]
+CMD ["python", "run.py"]
