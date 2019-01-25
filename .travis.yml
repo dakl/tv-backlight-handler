@@ -1,0 +1,10 @@
+language: bash
+
+services:
+  - docker
+
+script:
+  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
+  - make build
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - make push
