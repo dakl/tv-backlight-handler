@@ -5,8 +5,9 @@ logger = logging.getLogger(__name__)
 
 
 class Config:
-    PARTICLE_BASE_URL = 'https://api.particle.io/v1/devices'
-    BROKER = 'worker0'
+    PARTICLE_BASE_URL = os.getenv('PARTICLE_BASE_URL', 'http://localhost:8099')
+    BROKER = os.getenv('BROKER', 'localhost')
+
     DEBUG = os.getenv('DEBUG', False)
 
     def __init__(self):
